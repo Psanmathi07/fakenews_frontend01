@@ -1,4 +1,4 @@
-const backendURL = "https://fakenews-backend01-5.onrender.com";  // ✅ your Render backend URL
+const backendURL = "https://fakenews-backend01-11.onrender.com";  // ✅ your Render backend URL
 
 document.getElementById("predictBtn").addEventListener("click", async () => {
   const inputText = document.getElementById("newsInput").value.trim();
