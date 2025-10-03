@@ -1,0 +1,95 @@
+/* Fonts & Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+/* Container */
+.container {
+  text-align: center;
+  max-width: 800px;
+  padding: 20px;
+}
+
+/* Title */
+h1 {
+  font-weight: 600;
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+}
+.subtitle {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+/* Glass Card */
+.card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+/* Textarea */
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 15px;
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 20px;
+  resize: none;
+  outline: none;
+  box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* Button */
+button {
+  background: #ff416c;
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  border: none;
+  color: white;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(255,65,108,0.6);
+}
+
+/* Result Box */
+#resultBox {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.2);
+}
+#result {
+  font-size: 1.1rem;
+  font-weight: 500;
+  white-space: pre-line;
+}
+
+/* Footer */
+footer {
+  margin-top: 40px;
+  font-size: 0.85rem;
+  font-weight: 300;
+  opacity: 0.9;
+}
