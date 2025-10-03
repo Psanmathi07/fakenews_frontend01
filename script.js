@@ -10,7 +10,7 @@ async function checkNews() {
   resultElement.innerText = "⏳ Analyzing...";
 
   try {
-    const response = await fetch("https://your-backend-url.onrender.com/predict", {
+    const response = await fetch("https://fakenews-backend01-3.onrender.com/predict", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text })
