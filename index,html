@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fake News Detector</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>📰 Fake News Detector</h1>
+    <p class="subtitle">Paste a news article below and check if it’s real or fake</p>
+
+    <div class="card">
+      <textarea id="newsInput" placeholder="Type or paste the news article here..."></textarea>
+      <button onclick="checkNews()">🚀 Predict</button>
+      <div id="resultBox">
+        <p id="result">Your prediction will appear here...</p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>⚡ Powered by Machine Learning | 2025</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
