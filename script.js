@@ -1,27 +1,38 @@
-const backendURL = "https://fakenews-backend01-11.onrender.com";  // ✅ your Render backend URL
+// Replace with your actual backend Render URL
+const backendURL = "https://fakenews-backend01-11.onrender.com";  
 
-document.getElementById("predictBtn").addEventListener("click", async () => {
-  const inputText = document.getElementById("newsInput").value.trim();
-  if (!inputText) {
-    alert("⚠️ Please enter some text");
-    return;
-  }
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("predictBtn");
+  const input = document.getElementById("newsInput");
+  const result = document.getElementById("result");
 
-  try {
-    const res = await fetch(`${backendURL}/predict`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text: inputText }),
-    });
+  btn.addEventListener("click", async () => {
+    const text = input.value.trim();
+    if (!text) {
+      result.innerHTML = "⚠️ Please enter some text";
+      return;
+    }
 
-    if (!res.ok) throw new Error("Backend not responding");
+    try {
+      const res = await fetch(`${backendURL}/predict`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text })
+      });
 
-    const data = await res.json();
-    document.getElementById("result").innerHTML =
-      `Prediction: <b>${data.prediction}</b><br/>Confidence: ${data.confidence}%`;
+      if (!res.ok) {
+        result.innerHTML = "❌ Backend error";
+        return;
+      }
 
-  } catch (err) {
-    console.error(err);
-    document.getElementById("result").innerHTML = "❌ Failed to connect to backend";
-  }
+      const data = await res.json();
+      result.innerHTML = `
+        Prediction: <b>${data.prediction}</b><br>
+        Confidence: ${data.confidence}%
+      `;
+    } catch (err) {
+      console.error(err);
+      result.innerHTML = "❌ Failed to connect to backend";
+    }
+  });
 });
