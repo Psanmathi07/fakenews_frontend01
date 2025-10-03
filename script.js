@@ -1,5 +1,5 @@
 // Replace with your actual backend Render URL
-const backendURL = "https://fakenews-backend01-11.onrender.com";  
+const backendURL = "https://fakenews-backend01-12.onrender.com";  
 
 document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("predictBtn");
