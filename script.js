@@ -1,4 +1,4 @@
-const backendURL = "https://fakenews-backend01-7.onrender.com/predict";
+const backendURL = "https://fakenews-backend01-9.onrender.com/predict";
 
 async function checkNews() {
   const inputText = document.getElementById("newsInput").value;
