@@ -1,29 +1,27 @@
-const backendURL = "https://fakenews-backend01-10.onrender.com/predict";
+const backendURL = "https://fakenews-backend01-5.onrender.com";  // ✅ your Render backend URL
 
-async function checkNews() {
-  const inputText = document.getElementById("newsInput").value;
+document.getElementById("predictBtn").addEventListener("click", async () => {
+  const inputText = document.getElementById("newsInput").value.trim();
   if (!inputText) {
-    alert("⚠️ Please enter some text first!");
+    alert("⚠️ Please enter some text");
     return;
   }
 
   try {
-    const response = await fetch(backendURL, {
+    const res = await fetch(`${backendURL}/predict`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text: inputText })
+      body: JSON.stringify({ text: inputText }),
     });
 
-    if (!response.ok) {
-      throw new Error("Server error: " + response.status);
-    }
+    if (!res.ok) throw new Error("Backend not responding");
 
-    const data = await response.json();
-    document.getElementById("result").innerText =
-      `📰 Prediction: ${data.result}`;
+    const data = await res.json();
+    document.getElementById("result").innerHTML =
+      `Prediction: <b>${data.prediction}</b><br/>Confidence: ${data.confidence}%`;
+
   } catch (err) {
-    console.error("❌ Request failed:", err);
-    document.getElementById("result").innerText =
-      "❌ Failed to connect to backend.";
+    console.error(err);
+    document.getElementById("result").innerHTML = "❌ Failed to connect to backend";
   }
-}
+});
